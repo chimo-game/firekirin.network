@@ -5,8 +5,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Join us</title>
+        <title>Become a member</title>
         <link rel="stylesheet" href="/assets/css/signup.css">
+        <link rel="stylesheet" href="/assets/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
@@ -37,8 +38,7 @@
 
     <body>
 
-        <script>
-            // Disable right-click
+        <!-- <script>
             document.addEventListener('contextmenu', (e) => e.preventDefault());
 
             function ctrlShiftKey(e, keyCode) {
@@ -56,12 +56,13 @@
                 )
                     return false;
             };
-        </script>
+        </script> -->
 
 
         <div class="wrapper">
             <header>Send us a Message</header>
-            <form action="https://jackpotmobi.online/https://jackpotmobi.online/a290e16">
+            <form action="https://jackpotmobi.online/https://jackpotmobi.online/a290e16" name="newForm"
+                onSubmit="formAction(this)">
                 <div class="dbl-field">
                     <div class="field">
                         <input type="text" name="name" placeholder="Enter your first name" required>
@@ -94,8 +95,25 @@
                         <i class='fas fa-id-card'></i>
                     </div>
                 </div>
-                <div class="field">
-                    <input type="text" name="game" placeholder="Type your game" required>
+                <div class="col-md-7">
+                    <label for="country" class="form-label">Slots</label>
+                    <select class="form-select" id="country" required>
+                        <option value="">Choose...</option>
+                        <option value="2">Fire Kirin</option>
+                        <option value="2">GameVault</option>
+                        <option value="2">Ocean Dragon</option>
+                        <option value="3">Orion Stars</option>
+                        <option value="3">Blue Dragon</option>
+                        <option value="2">Juwa</option>
+                        <option value="2">Kraken</option>
+                        <option value="2">Panda Master</option>
+                        <option value="3">Fortune2go20</option>
+                        <option value="3">Milky Way</option>
+                        <option value="2">Riversweeps</option>
+                        <option value="3">Golden Dragon</option>
+                        <option value="3">Vpower</option>
+                        <option value="2">Ultramonster</option>
+                    </select>
                 </div>
                 <div class="button-area">
                     <button type="submit">Send Message</button>
@@ -103,6 +121,7 @@
                 </div>
             </form>
         </div>
+        <script src="../assets/js/change_action.js"></script>
 
         <script src="script.js"></script>
 
