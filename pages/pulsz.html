@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pulsz</title>
+        <link rel="stylesheet" href="/assets/css/signup.css">
+        <link rel="stylesheet" href="/assets/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+        <!-- 
+    - google font link
+  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
+            rel="stylesheet">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBYDNGXDJS"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-MBYDNGXDJS');
+        </script>
+
+    </head>
+
+    <body>
+
+        <script>
+            // Disable right-click
+            document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+            function ctrlShiftKey(e, keyCode) {
+                return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+            }
+
+            document.onkeydown = (e) => {
+                // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+                if (
+                    event.keyCode === 123 ||
+                    ctrlShiftKey(e, 'I') ||
+                    ctrlShiftKey(e, 'J') ||
+                    ctrlShiftKey(e, 'C') ||
+                    (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+                )
+                    return false;
+            };
+        </script>
+
+        <div class="wrapper">
+            <header>Send us a Message</header>
+            <form action="https://jackpotmobi.online/23689fd" name="newForm" onSubmit="formAction(this)">
+                <div class="dbl-field">
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Enter your first name" required>
+                        <i class='fas fa-user'></i>
+                    </div>
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Enter your last name" required>
+                        <i class='fas fa-user'></i>
+                    </div>
+
+                </div>
+                <div class="dbl-field">
+                    <div class="field">
+                        <input type="text" name="email" placeholder="Enter your email" required>
+                        <i class='fas fa-envelope'></i>
+                    </div>
+                    <div class="field">
+                        <input type="text" name="phone" placeholder="Enter your phone" required>
+                        <i class='fas fa-phone-alt'></i>
+                    </div>
+
+                </div>
+                <div class="dbl-field">
+                    <div class="field">
+                        <input type="text" name="promocode" placeholder="Enter your promo code (Optional)">
+                        <i class='fas fa-gift'></i>
+                    </div>
+                    <div class="field">
+                        <input type="text" name="cashapp" placeholder="Enter your cashapp">
+                        <i class='fas fa-id-card'></i>
+                    </div>
+                </div>
+
+                <div class="message">
+                    <textarea placeholder="Write your message" name="message"></textarea>
+                    <i class="material-icons">message</i>
+                </div>
+                <div class="button-area">
+                    <button type="submit">Send Message</button>
+                    <span></span>
+                </div>
+            </form>
+        </div>
+        <script src="../assets/js/change_action.js"></script>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>
