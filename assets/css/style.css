@@ -305,9 +305,9 @@ body {
   width: 100%;
 }
 
-/* .section {
+.section {
   padding-block: var(--section-spacing);
-} */
+}
 
 .section-title {
   margin-block: 10px;
