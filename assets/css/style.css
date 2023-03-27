@@ -311,6 +311,21 @@ body {
   width: 100%;
 }
 
+.my-btn {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.my-btn:nth-last-child() {
+  background-color: var(--bg-purple-alpha-30);
+}
+
+.my-btn-link {
+  background-color: var(--bg-purple);
+  padding: 0 30px;
+}
+
 .section {
   padding-block: var(--section-spacing);
 }
