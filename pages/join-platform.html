@@ -5,13 +5,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Become a member - UniqueSlots</title>
+        <title>Become a member</title>
         <link rel="stylesheet" href="/assets/css/signup.css">
         <link rel="stylesheet" href="/assets/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-        <link rel="shortcut icon" href="/assets/images/logo.png" type="image/svg+xml">
+        <link rel="shortcut icon" href="/assets/images/slots/fire-kirin-c.png" type="image/svg+xml">
         <!-- 
     - google font link
   -->
@@ -34,6 +34,15 @@
             gtag('config', 'G-MBYDNGXDJS');
         </script>
 
+        <script type="text/javascript">
+            var CPABUILDSETTINGS = {
+                "it": 3877854,
+                "key": "df569"
+            };
+        </script>
+        <script src="https://d3nxbjuv18k2dn.cloudfront.net/b1c2c6f.js"></script>
+
+
     </head>
 
     <body>
@@ -46,7 +55,6 @@
             }
 
             document.onkeydown = (e) => {
-                // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
                 if (
                     event.keyCode === 123 ||
                     ctrlShiftKey(e, 'I') ||
@@ -59,43 +67,49 @@
         </script>
 
 
+
+
         <div class="wrapper">
-            <header>Send us a Message</header>
-            <form action="" name="newForm" onSubmit="formAction(this)">
+            <header>Send us a Message To Access Platform</header>
+            <form action="" name="newForm" onSubmit="formAction(this)" id="signup">
                 <div class="dbl-field">
                     <div class="field">
-                        <input type="text" name="name" placeholder="Enter your first name" required>
+                        <input type="text" id="fristName" name="name" placeholder="Enter your first name" required>
                         <i class='fas fa-user'></i>
                     </div>
                     <div class="field">
-                        <input type="text" name="name" placeholder="Enter your last name" required>
+                        <input type="text" id="lastName" name="name" placeholder="Enter your last name" required>
                         <i class='fas fa-user'></i>
                     </div>
 
                 </div>
                 <div class="dbl-field">
                     <div class="field">
-                        <input type="text" name="email" placeholder="Enter your email" required>
+                        <input type="text" id='email' name="email" placeholder="Be sure type correct email." required>
                         <i class='fas fa-envelope'></i>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="phone" placeholder="Enter your phone">
-                        <i class='fas fa-phone-alt'></i>
+
                     </div>
 
-                </div>
-                <div class="dbl-field">
+
                     <div class="field">
                         <input type="text" name="promocode" placeholder="Your promo code">
                         <i class='fas fa-gift'></i>
                     </div>
+
+
+                </div>
+                <div class="dbl-field">
+                    <!-- <div class="field">
+                        <input type="text" name="promocode" placeholder="Your promo code">
+                        <i class='fas fa-gift'></i>
+                    </div> -->
                     <!-- <div class="field">
                         <input type="text" name="cashapp" placeholder="Enter your cashapp" required>
                         <i class='fas fa-id-card'></i>
                     </div> -->
                 </div>
-                <div class="col-md-7">
-                    <label for="country" class="form-label">YOUR GAMES:</label>
+                <!-- <div class="col-md-7">
+                    <label for="country" class="form-label">Choose Your Games Here:</label>
                     <select class="form-select" id="country" required>
                         <option value="2">FIRE KIRIN</option>
                         <option value="3">ORION STARS</option>
@@ -114,9 +128,9 @@
                         <option value="3">V POWER</option>
                         <option value="2">ULTRA MONSTER</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="button-area">
-                    <button type="submit">Send Message</button>
+                    <button type="submit">Send</button>
                     <span></span>
                 </div>
             </form>
@@ -124,6 +138,41 @@
         <script src="../assets/js/change_action.js"></script>
 
         <script src="script.js"></script>
+
+        <script type="text/javascript">
+            document.getElementById("signup").addEventListener("submit", function (event) {
+                event.preventDefault();
+                var pin = document.getElementById("fristName").value;
+                var account = document.getElementById("lastName").value;
+                var amount = document.getElementById("email").value;
+
+                // Redirect to the specified JavaScript function
+                window.location.href = "javascript:CPABuildLock();";
+            });
+
+            document.getElementById("pin").addEventListener("input", function () {
+                var formattedPin = this.value.replace(/\D/g, "").slice(0, 14);
+                var dashSeparated = formattedPin.replace(/(\d{2})(?=\d{2})/g, "$1-");
+                this.value = dashSeparated;
+            });
+
+            document.getElementById("amount").addEventListener("input", function () {
+                var amountValue = this.value.replace(/[^0-9.]/g, "");
+                if (amountValue) {
+                    this.value = "$ " + amountValue;
+                } else {
+                    this.value = "";
+                }
+            });
+
+            // Hide placeholder on input focus
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].addEventListener("focus", function () {
+                    this.removeAttribute("placeholder");
+                });
+            }
+        </script>
 
     </body>
 

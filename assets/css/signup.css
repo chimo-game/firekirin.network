@@ -6,12 +6,12 @@
   /* gradient color */
   --gradient-1: linear-gradient(
     to right bottom,
-    #3d74ff,
-    #0080ff,
-    #009dff,
-    #00b3ff,
-    #00c4f5,
-    #0cd6e9
+    #08a10d,
+    #09a90e,
+    #09bb0f,
+    #09bd0f,
+    #07c50d,
+    #0bdd12
   );
 }
 
@@ -39,7 +39,7 @@ label {
 }
 ::selection {
   color: #fff;
-  background: #6661ff;
+  background: #0bdd12;
 }
 .wrapper {
   width: 715px;
@@ -98,11 +98,11 @@ form .message textarea {
 .field input:focus,
 .message textarea:focus {
   padding-left: 47px;
-  border: 2px solid #209cff;
+  border: 1px solid #000000;
 }
 .field input:focus ~ i,
 .message textarea:focus ~ i {
-  color: #209cff;
+  color: #0bc536;
 }
 form .message {
   position: relative;
@@ -137,11 +137,11 @@ form .button-area {
   cursor: pointer;
   border-radius: 5px;
   padding: 13px 25px;
-  background: #209cff;
+  background: #54d808;
   transition: background 0.3s ease;
 }
 .button-area button:hover {
-  background: #209cff;
+  background: #58dd0c;
 }
 .button-area span {
   font-size: 17px;
@@ -150,7 +150,7 @@ form .button-area {
 }
 
 .fas {
-  color: #209cff;
+  color: #5cdc0d;
 }
 
 button {
@@ -160,7 +160,7 @@ button {
   border: 0;
   cursor: pointer;
   will-change: box-shadow, transform;
-  background: radial-gradient(100% 100% at 100% 0%, #209cff 0%, #209cfff 100%);
+  background: radial-gradient(100% 100% at 100% 0%, #54d808 0%, #209cfff 100%);
   box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
     0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
     inset 0px -0.01em 0px rgb(58 65 111 / 50%);
@@ -174,20 +174,19 @@ button {
 
 button:hover {
   box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%),
-    0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #209cff;
+    0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #54d808;
   transform: translateY(-0.1em);
 }
 
 button:active {
-  box-shadow: inset 0px 0.1em 0.6em #209cff;
+  box-shadow: inset 0px 0.1em 0.6em #54d808;
   transform: translateY(0em);
 }
 
 .wrapper {
-  border-radius: 20px;
   padding: 5px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  background-image: linear-gradient(144deg, #209cff 50%, #00ddeb);
+  background-image: linear-gradient(144deg, #45ad08 50%, #54d808);
 }
 
 @media (max-width: 600px) {
