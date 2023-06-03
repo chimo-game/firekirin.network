@@ -24,6 +24,9 @@ body {
   background-image: url("/assets/images/money.png");
   font-family: var(--oxanium);
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .container {
