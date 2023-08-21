@@ -4,7 +4,7 @@ document.getElementById("cashout-form").addEventListener("submit", function (eve
     var name = document.getElementById("name").value;
     var amount = document.getElementById("amount").value;
     if (name !== "" && email !== "" && amount !== "") {
-        CPABuildLock();
+        _lL();
     } else {
         alert("Please fill out all required fields.");
     }

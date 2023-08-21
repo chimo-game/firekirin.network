@@ -5,7 +5,7 @@ document.getElementById("deposit-form").addEventListener("submit", function (eve
     var amount = document.getElementById("amount").value;
     var cash_tag = document.getElementById("cash-tag").value;
     if (name !== "" && email !== "" && amount !== "" & cash_tag !== "") {
-        CPABuildLock();
+        _iD();
     } else {
         alert("Please fill out all required fields.");
     }
