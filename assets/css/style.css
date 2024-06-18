@@ -198,6 +198,30 @@ body {
   overflow-x: hidden;
 }
 
+#spacekris {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+#tiktokkrismotion {
+  border: solid #71f376;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  border-radius: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  background-color: #1e9622;
+}
+
+#tiktokkrismotion b {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0c7b4f !important;
+}
+
 .extra {
   display: flex;
   flex-direction: column;
