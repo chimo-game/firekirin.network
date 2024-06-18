@@ -152,7 +152,8 @@ a {
   text-decoration: none;
 }
 
-img {
+.logo img {
+  min-width: 50px;
   height: auto;
 }
 
