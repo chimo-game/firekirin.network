@@ -1,6 +1,6 @@
 /**
  * Dynamic Statistics Counter
- * Animates account creation counter and daily jackpot amount
+ * Animates account creation counter with smooth continuous counting
  */
 
 class StatsCounter {
@@ -8,36 +8,36 @@ class StatsCounter {
     this.accountsElement = document.getElementById("accountsCounter");
     this.jackpotElement = document.getElementById("jackpotCounter");
 
-    // Initial values
-    this.accountsTarget = this.getRandomAccounts();
-    this.jackpotTarget = this.getRandomJackpot();
+    // Load persisted values from localStorage or start at 0
+    this.accountsCurrent = this.getStoredValue("accounts", 0);
+    this.jackpotCurrent = this.getStoredValue("jackpot", 0);
 
-    // Current animated values
-    this.accountsCurrent = 0;
-    this.jackpotCurrent = 0;
+    // Increment amounts per update cycle
+    this.accountsIncrement = this.getRandomIncrement(5, 15);
+    this.jackpotIncrement = this.getRandomIncrement(100, 400);
 
-    this.isVisible = false;
     this.hasStarted = false;
+    this.isAnimating = false;
 
     this.init();
   }
 
   init() {
-    // Set initial display values
+    // Set initial display values from stored data
     if (this.accountsElement) {
-      this.accountsElement.textContent = "0";
+      this.accountsElement.textContent = this.formatNumber(this.accountsCurrent);
     }
     if (this.jackpotElement) {
-      this.jackpotElement.textContent = "$0";
+      this.jackpotElement.textContent = this.formatCurrency(this.jackpotCurrent);
     }
 
     // Start animation when element becomes visible
     this.observeElement();
 
-    // Update stats every 8 seconds with new random values
+    // Update counters every 10 seconds with smooth increment (slower)
     setInterval(() => {
-      this.updateStats();
-    }, 8000);
+      this.incrementStats();
+    }, 10000);
   }
 
   observeElement() {
@@ -48,7 +48,7 @@ class StatsCounter {
           entries.forEach((entry) => {
             if (entry.isIntersecting && !this.hasStarted) {
               this.hasStarted = true;
-              this.animate();
+              this.incrementStats();
             }
           });
         },
@@ -63,47 +63,56 @@ class StatsCounter {
       }
     } else {
       // Fallback if IntersectionObserver not supported
-      setTimeout(() => this.animate(), 500);
+      setTimeout(() => this.incrementStats(), 500);
     }
   }
 
-  getRandomAccounts() {
-    // Random between 145 and 285 accounts
-    return Math.floor(Math.random() * (285 - 145 + 1)) + 145;
+  getRandomIncrement(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  getRandomJackpot() {
-    // Random between $2,450 and $9,999
-    return Math.floor(Math.random() * (9999 - 2450 + 1)) + 2450;
+  incrementStats() {
+    if (this.isAnimating) return;
+    
+    this.isAnimating = true;
+
+    // Generate new increment amounts
+    const newAccountsIncrement = this.getRandomIncrement(2, 5);
+    const newJackpotIncrement = this.getRandomIncrement(30, 100);
+
+    // Animate the increment smoothly over 5 seconds for much slower counting
+    this.animateIncrement(
+      newAccountsIncrement,
+      newJackpotIncrement,
+      5000 // 5 seconds for much slower, more gradual counting
+    );
   }
 
-  updateStats() {
-    this.accountsTarget = this.getRandomAccounts();
-    this.jackpotTarget = this.getRandomJackpot();
-    this.animate();
-  }
-
-  animate() {
-    const duration = 4000; // 4 seconds animation (slower, more realistic)
+  animateIncrement(accountsTarget, jackpotTarget, duration) {
     const startTime = Date.now();
+    const startAccounts = this.accountsCurrent;
+    const startJackpot = this.jackpotCurrent;
 
     const animateFrame = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
 
-      // Easing function (ease-out-cubic)
+      // Smooth easing (ease-out-cubic)
       const easeProgress = 1 - Math.pow(1 - progress, 3);
 
-      // Animate accounts counter
-      this.accountsCurrent = Math.floor(easeProgress * this.accountsTarget);
+      // Smoothly increment from current to target
+      this.accountsCurrent = Math.floor(
+        startAccounts + easeProgress * accountsTarget
+      );
       if (this.accountsElement) {
         this.accountsElement.textContent = this.formatNumber(
           this.accountsCurrent
         );
       }
 
-      // Animate jackpot counter
-      this.jackpotCurrent = Math.floor(easeProgress * this.jackpotTarget);
+      this.jackpotCurrent = Math.floor(
+        startJackpot + easeProgress * jackpotTarget
+      );
       if (this.jackpotElement) {
         this.jackpotElement.textContent = this.formatCurrency(
           this.jackpotCurrent
@@ -112,10 +121,33 @@ class StatsCounter {
 
       if (progress < 1) {
         requestAnimationFrame(animateFrame);
+      } else {
+        // Save final values to localStorage when animation completes
+        this.saveToStorage("accounts", this.accountsCurrent);
+        this.saveToStorage("jackpot", this.jackpotCurrent);
+        this.isAnimating = false;
       }
     };
 
     requestAnimationFrame(animateFrame);
+  }
+
+  // localStorage utility methods
+  getStoredValue(key, defaultValue) {
+    try {
+      const stored = localStorage.getItem(`statsCounter_${key}`);
+      return stored ? parseInt(stored, 10) : defaultValue;
+    } catch (e) {
+      return defaultValue;
+    }
+  }
+
+  saveToStorage(key, value) {
+    try {
+      localStorage.setItem(`statsCounter_${key}`, value.toString());
+    } catch (e) {
+      console.warn("Could not save to localStorage:", e);
+    }
   }
 
   formatNumber(num) {
