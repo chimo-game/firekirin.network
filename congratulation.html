@@ -239,16 +239,14 @@
             createConfetti(canvas.width / 2, canvas.height / 2, 60);
         }, 400);
 
-        // Continuous burst effect
+        // Continuous pop-up burst effect from random locations
         setInterval(() => {
-            if (confetti.length < 100) {
-                createConfetti(
-                    Math.random() * canvas.width,
-                    -20,
-                    15
-                );
+            if (confetti.length < 150) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                createConfetti(x, y, 30);
             }
-        }, 1500);
+        }, 2000);
 
         const button = document.getElementById('download-btn');
         const card = document.getElementById('card');
