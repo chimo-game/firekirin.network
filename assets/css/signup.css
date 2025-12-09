@@ -75,7 +75,7 @@ form .dbl-field {
   position: absolute;
   top: 50%;
   left: 18px;
-  color: #ccc;
+  color: #fff;
   font-size: 17px;
   pointer-events: none;
   transform: translateY(-50%);
@@ -220,5 +220,487 @@ button:active {
   .button-area span {
     margin: 20px 0 0;
     text-align: center;
+  }
+}
+
+/* ===== NEW SIGNUP FORM & COUPON BAR STYLES ===== */
+
+/* Fixed Coupon Code Bar */
+.coupon-code-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  padding: 15px 20px;
+  z-index: 9999;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3),
+    0 0 30px rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.5);
+  animation: slideDownBar 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDownBar {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.coupon-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.coupon-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.coupon-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.coupon-code {
+  font-family: "Courier New", monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.copy-btn:active {
+  transform: scale(0.95);
+}
+
+/* Main Signup Wrapper */
+.signup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 100px 20px 40px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(20, 30, 48, 0.98) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/assets/images/bg2.jpg");
+  background-attachment: fixed;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.signup-container {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 250, 252, 0.98) 100%
+  );
+  border-radius: 20px;
+  padding: 50px 45px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15),
+    0 0 40px rgba(139, 92, 246, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  position: relative;
+  z-index: 10;
+  animation: slideUpForm 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUpForm {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-header h1 {
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.form-header p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Form Styling */
+#signup {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-row.full-width-row {
+  grid-template-columns: 1fr;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6366f1;
+  text-shadow: 0 0 5px rgba(99, 102, 241, 0.2);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input,
+.game-select {
+  width: 100%;
+  padding: 14px 16px;
+  padding-right: 40px;
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #1f2937;
+  background: rgba(249, 250, 251, 0.9);
+  transition: all 0.3s ease;
+  font-family: var(--fontFamily-oxanium);
+  font-weight: 500;
+}
+
+.input-wrapper input::placeholder {
+  color: #9ca3af;
+}
+
+.input-wrapper input:focus,
+.game-select:focus {
+  border-color: rgba(99, 102, 241, 0.6);
+  background: #fff;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2),
+    inset 0 0 10px rgba(99, 102, 241, 0.03);
+  outline: none;
+}
+
+.input-wrapper i {
+  position: absolute;
+  right: 14px;
+  color: #6366f1;
+  font-size: 1.1rem;
+  pointer-events: none;
+  text-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
+}
+
+/* Game Select */
+.game-select {
+  padding: 14px 16px;
+  color: #1f2937;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236366f1' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.game-select option {
+  background: #fff;
+  color: #1f2937;
+  padding: 10px;
+}
+
+/* Checkbox */
+.checkbox-group {
+  margin: 10px 0;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4b5563;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: none;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #6366f1;
+  border: 2px solid rgba(99, 102, 241, 0.4);
+  border-radius: 4px;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3),
+    0 0 20px rgba(139, 92, 246, 0.15);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--fontFamily-oxanium);
+}
+
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4),
+    0 0 30px rgba(139, 92, 246, 0.25);
+}
+
+.submit-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Form Footer */
+.form-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(99, 102, 241, 0.15);
+}
+
+.form-footer p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.form-footer a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(99, 102, 241, 0.2);
+}
+
+.form-footer a:hover {
+  color: #8b5cf6;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .coupon-code-bar {
+    padding: 12px 15px;
+  }
+
+  .coupon-bar-content {
+    gap: 15px;
+  }
+
+  .coupon-label {
+    font-size: 0.95rem;
+  }
+
+  .coupon-code {
+    font-size: 1.1rem;
+  }
+
+  .signup-container {
+    padding: 30px 25px;
+    margin-top: 70px;
+  }
+
+  .form-header h1 {
+    font-size: 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .input-wrapper input,
+  .game-select {
+    padding: 12px 14px;
+    padding-right: 36px;
+    font-size: 0.95rem;
+  }
+
+  .input-wrapper i {
+    right: 10px;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    padding: 14px 18px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .coupon-code-bar {
+    padding: 10px 12px;
+  }
+
+  .coupon-bar-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .coupon-label {
+    font-size: 0.85rem;
+  }
+
+  .coupon-code {
+    font-size: 0.95rem;
+  }
+
+  .copy-btn {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+  }
+
+  .signup-wrapper {
+    padding: 90px 10px 20px 10px;
+  }
+
+  .signup-container {
+    padding: 25px 18px;
+    border-radius: 15px;
+  }
+
+  .form-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-header p {
+    font-size: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .input-wrapper input,
+  .game-select {
+    padding: 10px 12px;
+    padding-right: 32px;
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    padding: 12px 16px;
+    font-size: 0.95rem;
   }
 }

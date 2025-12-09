@@ -745,7 +745,7 @@ body {
 \*-----------------------------------*/
 
 .upcoming-item:not(:last-child) {
-  margin-block-end: 90px;
+  margin-block-end: 130px;
 }
 
 .upcoming-card {
@@ -861,7 +861,7 @@ body {
 
 .news-list {
   display: grid;
-  gap: 30px;
+  gap: 50px;
 }
 
 .news-card {
@@ -1248,7 +1248,7 @@ body {
 
   .news-list {
     grid-template-columns: 1fr !important;
-    gap: 25px;
+    gap: 40px;
   }
 
   .section-text {
