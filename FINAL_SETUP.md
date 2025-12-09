@@ -5,10 +5,12 @@ Your Supabase credentials are now configured! ✅
 ## Next Step: Create Storage Buckets (2 minutes)
 
 ### 1. Go to Supabase Dashboard
+
 - Visit: https://supabase.com/dashboard
 - Click on your project: **opagedhpncefavhbmtup**
 
 ### 2. Create "files" Bucket
+
 1. Go to **Storage** (left menu)
 2. Click **Create New Bucket**
 3. Enter name: `files`
@@ -16,6 +18,7 @@ Your Supabase credentials are now configured! ✅
 5. Click **Create**
 
 ### 3. Create "activating" Folder
+
 1. Click into the `files` bucket
 2. Click **New Folder** button
 3. Enter name: `activating`
@@ -26,6 +29,7 @@ Your Supabase credentials are now configured! ✅
 ## 📋 Done! Now You Can:
 
 ### ✅ Upload Files
+
 ```
 Visit: https://firekirin.network/file-manager
 - Drag & drop files
@@ -34,6 +38,7 @@ Visit: https://firekirin.network/file-manager
 ```
 
 ### ✅ Manage Activation Files
+
 ```
 Visit: https://firekirin.network/activating
 - Upload activation files
@@ -59,15 +64,15 @@ Vercel will auto-deploy in ~1-2 minutes!
 
 ## ⚡ What You've Set Up
 
-| Component | Status |
-|-----------|--------|
-| Supabase Project | ✅ Created |
-| Supabase Credentials | ✅ Added to HTML files |
-| File Manager UI | ✅ Ready |
-| Activating Folder UI | ✅ Ready |
-| API Routes | ✅ Ready |
-| Storage Buckets | ⏳ **Create now** |
-| Vercel Deployment | ⏳ **Deploy when ready** |
+| Component            | Status                   |
+| -------------------- | ------------------------ |
+| Supabase Project     | ✅ Created               |
+| Supabase Credentials | ✅ Added to HTML files   |
+| File Manager UI      | ✅ Ready                 |
+| Activating Folder UI | ✅ Ready                 |
+| API Routes           | ✅ Ready                 |
+| Storage Buckets      | ⏳ **Create now**        |
+| Vercel Deployment    | ⏳ **Deploy when ready** |
 
 ---
 

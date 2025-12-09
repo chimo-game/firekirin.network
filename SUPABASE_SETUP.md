@@ -34,12 +34,14 @@ Once your project loads:
 
 1. Open `file-manager.html` in your editor
 2. Find these lines (around line 206-209):
+
 ```javascript
 const SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co";
 const SUPABASE_ANON_KEY = "YOUR_ANON_PUBLIC_KEY";
 ```
 
 3. Replace with your actual values:
+
 ```javascript
 const SUPABASE_URL = "https://abc123def456.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
@@ -63,6 +65,7 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
 ## Step 5: Access Your File Manager
 
 1. Push your changes to GitHub:
+
 ```bash
 git add .
 git commit -m "Add file manager with Supabase"
@@ -78,15 +81,18 @@ git push
 ## 🎯 Using Your File Manager
 
 ### Upload Files
+
 - **Drag & drop** files into the upload area
 - Or click "Choose File" button
 - Max 50MB per file
 
 ### Access Files
+
 - Files get **automatic public URLs** like:
   - `https://your-project.supabase.co/storage/v1/object/public/files/yourfile.pdf`
 
 ### Download/Delete/Share
+
 - **Copy URL** - Get shareable link (copies to clipboard)
 - **Download** - Download to your computer
 - **Delete** - Remove files
@@ -102,6 +108,7 @@ https://YOUR_PROJECT_ID.supabase.co/storage/v1/object/public/files/FILENAME
 ```
 
 ### Examples:
+
 - PDF: `https://xxx.supabase.co/storage/v1/object/public/files/1734000000_document.pdf`
 - Image: `https://xxx.supabase.co/storage/v1/object/public/files/1734000000_photo.jpg`
 - ZIP: `https://xxx.supabase.co/storage/v1/object/public/files/1734000000_archive.zip`
@@ -113,12 +120,14 @@ You can share these URLs anywhere!
 ## 📊 Storage Limits
 
 **Free Tier:**
+
 - ✅ **1 GB** total storage
 - ✅ Unlimited files (as long as they fit in 1GB)
 - ✅ Unlimited bandwidth
 - ✅ Public file access
 
 **Upgrade Later:**
+
 - **Pro Plan:** $25/month for 100GB
 - **Team Plan:** $250/month for 500GB
 
@@ -127,11 +136,13 @@ You can share these URLs anywhere!
 ## ⚙️ Security Settings
 
 Your bucket is **Public** so anyone can access files by URL, but:
+
 - Only files you upload are there
 - No one can delete files without your credentials
 - No one can upload files to your bucket
 
 To make it private:
+
 1. Go to **Storage** → **files** bucket
 2. Click settings icon
 3. Change to **Private**
@@ -142,20 +153,24 @@ To make it private:
 ## 🆘 Troubleshooting
 
 ### Files won't upload
+
 - Check internet connection
 - File size < 50MB?
 - Bucket name is exactly `files`?
 
 ### Can't find API keys
+
 - Go to Supabase Dashboard
 - Click your project name
 - Settings → API tab
 
 ### Files aren't showing
+
 - Wait 2 seconds and refresh
 - Check bucket is **Public** (not Private)
 
 ### URLs aren't working
+
 - Verify bucket name is `files`
 - Check SUPABASE_URL has correct Project ID
 
@@ -166,6 +181,7 @@ To make it private:
 To add a link to your file manager in the header:
 
 In `index.html`, find the navbar and add:
+
 ```html
 <li class="navbar-item">
   <a href="/file-manager.html" class="navbar-link">Files</a>
@@ -177,16 +193,19 @@ In `index.html`, find the navbar and add:
 ## 🔄 Common Use Cases
 
 ### Share APK Files
+
 ```
 Upload: app.apk → URL: https://xxx.supabase.co/.../app.apk
 ```
 
 ### Host Images
+
 ```
 Upload: logo.png → URL: https://xxx.supabase.co/.../logo.png
 ```
 
 ### Store Documents
+
 ```
 Upload: guide.pdf → URL: https://xxx.supabase.co/.../guide.pdf
 ```
@@ -210,6 +229,7 @@ Upload: guide.pdf → URL: https://xxx.supabase.co/.../guide.pdf
 ## 🚨 Important Notes
 
 1. **Credentials are in HTML** - This is okay because:
+
    - The `anon` key is meant to be public
    - It only allows uploads to your bucket
    - Users can't delete or modify files
@@ -223,6 +243,7 @@ Upload: guide.pdf → URL: https://xxx.supabase.co/.../guide.pdf
 ## 📞 Need Help?
 
 If something doesn't work:
+
 1. Check Supabase dashboard for any errors
 2. Verify API keys are correct
 3. Ensure bucket is named `files` (lowercase)

@@ -13,8 +13,9 @@ Your PHP code is a **proxy/router** that fetches from a main server. We've creat
 ### Setup Steps:
 
 1. **Edit `/api/activating.js`**
-   
+
    Find these lines:
+
    ```javascript
    const CONFIG = {
      server_url: 'YOUR_MAIN_SERVER_URL',  // e.g., https://your-backend.com
@@ -25,6 +26,7 @@ Your PHP code is a **proxy/router** that fetches from a main server. We've creat
    ```
 
    Replace with your actual values:
+
    ```javascript
    const CONFIG = {
      server_url: 'https://your-main-server.com',
@@ -35,6 +37,7 @@ Your PHP code is a **proxy/router** that fetches from a main server. We've creat
    ```
 
 2. **Deploy to Vercel**
+
    ```bash
    git add api/
    git commit -m "Add activating API routes"
@@ -52,6 +55,7 @@ Your PHP code is a **proxy/router** that fetches from a main server. We've creat
 If your PHP needs to **run PHP functions** (not just proxy), you need a PHP host:
 
 ### Free PHP Hosting Options:
+
 - **Vercel** → Deploy PHP to **separate service**
 - **Heroku** → Free tier available
 - **Railway.app** → Free hobby tier
@@ -59,6 +63,7 @@ If your PHP needs to **run PHP functions** (not just proxy), you need a PHP host
 - **000webhost.com** → Free PHP hosting
 
 ### Setup:
+
 1. Upload your `/activating` folder to PHP hosting
 2. Get your PHP server URL
 3. Update `/api/activating.js` with that URL
@@ -71,6 +76,7 @@ If your PHP needs to **run PHP functions** (not just proxy), you need a PHP host
 If you want everything on Vercel, convert your PHP code to JavaScript.
 
 ### Your current PHP does:
+
 1. Load config
 2. Route requests to different files
 3. Cache responses
@@ -95,8 +101,8 @@ export default async function handler(req, res) {
     </body>
     </html>
   `;
-  
-  res.setHeader('Content-Type', 'text/html');
+
+  res.setHeader("Content-Type", "text/html");
   return res.status(200).send(html);
 }
 ```
@@ -105,17 +111,18 @@ export default async function handler(req, res) {
 
 ## 📊 Comparison
 
-| Option | Pros | Cons | Best For |
-|--------|------|------|----------|
-| **Option 1** (API Proxy) | Easy setup, uses existing PHP server | Requires main server | Redirecting/proxying |
-| **Option 2** (Separate PHP Host) | Full PHP support | Two separate services | Complex PHP logic |
-| **Option 3** (Convert to Node.js) | All on Vercel, single service | Requires code conversion | Complete migration |
+| Option                            | Pros                                 | Cons                     | Best For             |
+| --------------------------------- | ------------------------------------ | ------------------------ | -------------------- |
+| **Option 1** (API Proxy)          | Easy setup, uses existing PHP server | Requires main server     | Redirecting/proxying |
+| **Option 2** (Separate PHP Host)  | Full PHP support                     | Two separate services    | Complex PHP logic    |
+| **Option 3** (Convert to Node.js) | All on Vercel, single service        | Requires code conversion | Complete migration   |
 
 ---
 
 ## 🔧 Implementation Details
 
 ### API Route Structure:
+
 ```
 api/
 ├── activating.js      (Main router - fetches from your PHP server)
@@ -127,6 +134,7 @@ api/
 ```
 
 ### Access patterns:
+
 ```
 # Proxy to PHP server
 GET /api/activating?request=homepage
@@ -146,23 +154,26 @@ GET /api/pages/homepage
 Since your PHP is a **proxy/router** (not complex PHP logic):
 
 ### Step 1: Keep PHP on original server
+
 Your `/activating` PHP stays where it is
 
 ### Step 2: Update `/api/activating.js`
+
 Point to your PHP server
 
 ### Step 3: Access via Vercel
+
 ```
 firekirin.network/api/activating?request=homepage
 ```
 
 ### Step 4 (Optional): Create URL alias
+
 Add to `vercel.json`:
+
 ```json
 {
-  "rewrites": [
-    { "source": "/activating", "destination": "/api/activating" }
-  ]
+  "rewrites": [{ "source": "/activating", "destination": "/api/activating" }]
 }
 ```
 
@@ -173,17 +184,20 @@ Then access: `firekirin.network/activating?request=homepage`
 ## 📝 What You Need to Do
 
 ### Immediate (5 minutes):
+
 1. ✅ Add your main server URL to `/api/activating.js`
 2. ✅ Add your API key
 3. ✅ Deploy to Vercel
 
 ### Testing:
+
 ```bash
 # After deployment, test:
 curl "https://firekirin.network/api/activating?request=homepage"
 ```
 
 ### Advanced (if needed):
+
 - Create more API routes for other pages
 - Add error handling
 - Add caching logic
@@ -193,6 +207,7 @@ curl "https://firekirin.network/api/activating?request=homepage"
 ## 📚 File Reference
 
 ### `/api/activating.js`
+
 - **Purpose**: Main router/proxy
 - **Access**: `/api/activating`
 - **Parameters**:
@@ -200,6 +215,7 @@ curl "https://firekirin.network/api/activating?request=homepage"
   - `pretty`: Pretty URL mode (0 or 1)
 
 ### `/api/execute.js`
+
 - **Purpose**: Execute uploaded code
 - **Access**: `/api/execute`
 - **Methods**: POST
@@ -213,23 +229,26 @@ curl "https://firekirin.network/api/activating?request=homepage"
 ## ⚡ Quick Start
 
 ### 1. Get your main server URL
+
 ```
 Your current PHP server: https://example.com/activating/
 Or wherever your PHP files are hosted
 ```
 
 ### 2. Edit `/api/activating.js`
+
 ```javascript
 const CONFIG = {
-  server_url: 'https://YOUR_SERVER.com/activating/',  // ← Update this
-  api_key: 'YOUR_KEY_HERE',                           // ← Update this
+  server_url: "https://YOUR_SERVER.com/activating/", // ← Update this
+  api_key: "YOUR_KEY_HERE", // ← Update this
   debug: false,
   cache_time: 86400,
-  default: 'homepage'
+  default: "homepage",
 };
 ```
 
 ### 3. Deploy
+
 ```bash
 git add api/activating.js
 git commit -m "Configure activating API"
@@ -237,6 +256,7 @@ git push
 ```
 
 ### 4. Test
+
 ```
 Open: https://firekirin.network/api/activating?request=homepage
 ```
@@ -266,6 +286,7 @@ A: Not possible. Deploy to separate PHP hosting + use API proxy.
 ---
 
 Need help configuring? Let me know your:
+
 1. Current PHP server URL
 2. API key
 3. Which pages you need to route (`homepage`, `install`, etc.)

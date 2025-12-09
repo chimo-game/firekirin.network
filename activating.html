@@ -1,282 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activating - FireKirin Network</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <style>
-    body {
-      background-color: #0a0e27;
-      background-image: radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.03) 0%, transparent 50%),
-                        url("./assets/images/body-bg.jpg");
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activating - FireKirin Network</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <style>
+        body {
+            background-color: #0a0e27;
+            background-image: radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.03) 0%, transparent 50%),
+                url("./assets/images/body-bg.jpg");
+        }
 
-    .activating-container {
-      max-width: 1000px;
-      margin: 100px auto;
-      padding: 40px 20px;
-    }
+        .activating-container {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 40px 20px;
+        }
 
-    .activating-title {
-      text-align: center;
-      font-size: 3rem;
-      color: #fff;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
+        .activating-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
-    .activating-subtitle {
-      text-align: center;
-      color: #00ff41;
-      margin-bottom: 40px;
-      font-size: 1.2rem;
-      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-    }
+        .activating-subtitle {
+            text-align: center;
+            color: #00ff41;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
 
-    .activating-content {
-      background: rgba(15, 22, 41, 0.8);
-      border: 2px solid rgba(0, 255, 65, 0.3);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 30px;
-    }
+        .activating-content {
+            background: rgba(15, 22, 41, 0.8);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
 
-    .activating-section {
-      margin-bottom: 30px;
-    }
+        .activating-section {
+            margin-bottom: 30px;
+        }
 
-    .section-title {
-      color: #00ff41;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      font-weight: bold;
-      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-    }
+        .section-title {
+            color: #00ff41;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
 
-    .file-list {
-      display: grid;
-      gap: 10px;
-    }
+        .file-list {
+            display: grid;
+            gap: 10px;
+        }
 
-    .file-item {
-      background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(255, 0, 110, 0.05));
-      border: 1px solid rgba(0, 255, 65, 0.3);
-      border-radius: 8px;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.3s ease;
-    }
+        .file-item {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(255, 0, 110, 0.05));
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
 
-    .file-item:hover {
-      background: linear-gradient(135deg, rgba(0, 255, 65, 0.15), rgba(255, 0, 110, 0.1));
-      border-color: rgba(0, 255, 65, 0.5);
-      box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-    }
+        .file-item:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.15), rgba(255, 0, 110, 0.1));
+            border-color: rgba(0, 255, 65, 0.5);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
 
-    .file-name {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1rem;
-    }
+        .file-name {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+        }
 
-    .file-type {
-      color: #6b7280;
-      font-size: 0.85rem;
-      background: rgba(0, 255, 65, 0.1);
-      padding: 4px 10px;
-      border-radius: 4px;
-    }
+        .file-type {
+            color: #6b7280;
+            font-size: 0.85rem;
+            background: rgba(0, 255, 65, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
 
-    .action-btn {
-      background-color: #00ff41;
-      color: #000;
-      padding: 8px 15px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-    }
+        .action-btn {
+            background-color: #00ff41;
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
 
-    .action-btn:hover {
-      box-shadow: 0 0 20px rgba(0, 255, 65, 0.7);
-      transform: scale(1.05);
-    }
+        .action-btn:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.7);
+            transform: scale(1.05);
+        }
 
-    .info-box {
-      background-color: rgba(99, 102, 241, 0.2);
-      border: 2px solid #6366f1;
-      border-radius: 10px;
-      padding: 20px;
-      color: #a5b4fc;
-      margin-bottom: 20px;
-    }
+        .info-box {
+            background-color: rgba(99, 102, 241, 0.2);
+            border: 2px solid #6366f1;
+            border-radius: 10px;
+            padding: 20px;
+            color: #a5b4fc;
+            margin-bottom: 20px;
+        }
 
-    .info-box strong {
-      color: #c7d2fe;
-    }
+        .info-box strong {
+            color: #c7d2fe;
+        }
 
-    .description {
-      color: #6b7280;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
+        .description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
 
-    .loading {
-      text-align: center;
-      padding: 20px;
-      color: #00ff41;
-    }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #00ff41;
+        }
 
-    .spinner {
-      border: 3px solid rgba(0, 255, 65, 0.2);
-      border-top: 3px solid #00ff41;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 15px;
-    }
+        .spinner {
+            border: 3px solid rgba(0, 255, 65, 0.2);
+            border-top: 3px solid #00ff41;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-    @media (max-width: 768px) {
-      .activating-container {
-        margin: 80px auto;
-        padding: 20px 15px;
-      }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
-      .activating-title {
-        font-size: 2rem;
-      }
+        @media (max-width: 768px) {
+            .activating-container {
+                margin: 80px auto;
+                padding: 20px 15px;
+            }
 
-      .file-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+            .activating-title {
+                font-size: 2rem;
+            }
 
-      .action-btn {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-      }
-    }
-  </style>
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .action-btn {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="activating-container">
-    <h1 class="activating-title">⚡ Activation System</h1>
-    <p class="activating-subtitle">Manage your activation files</p>
+    <div class="activating-container">
+        <h1 class="activating-title">⚡ Activation System</h1>
+        <p class="activating-subtitle">Manage your activation files</p>
 
-    <div class="info-box">
-      <strong>📝 Note:</strong> This page serves files from Supabase storage. 
-      Files are organized in the <code>/activating</code> folder and can be downloaded or executed.
-    </div>
-
-    <div class="activating-content">
-      <div class="activating-section">
-        <h2 class="section-title">📁 Available Files</h2>
-        <div id="fileList" class="file-list">
-          <div class="loading">
-            <div class="spinner"></div>
-            Loading activation files...
-          </div>
+        <div class="info-box">
+            <strong>📝 Note:</strong> This page serves files from Supabase storage.
+            Files are organized in the <code>/activating</code> folder and can be downloaded or executed.
         </div>
-      </div>
 
-      <div class="activating-section">
-        <h2 class="section-title">📂 Upload New Files</h2>
-        <button class="action-btn" onclick="document.getElementById('fileInput').click()" style="width: 100%; padding: 12px;">
-          Choose File to Upload
-        </button>
-        <input type="file" id="fileInput" style="display: none;" onchange="uploadFile(event)">
-      </div>
+        <div class="activating-content">
+            <div class="activating-section">
+                <h2 class="section-title">📁 Available Files</h2>
+                <div id="fileList" class="file-list">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Loading activation files...
+                    </div>
+                </div>
+            </div>
 
-      <div class="activating-section">
-        <h2 class="section-title">ℹ️ About This Folder</h2>
-        <p class="description">
-          The <strong>/activating</strong> folder contains executable files and scripts necessary for system activation.
-          You can:
-        </p>
-        <ul style="color: #6b7280; margin-left: 20px;">
-          <li>✓ Download files to your computer</li>
-          <li>✓ Upload new activation files</li>
-          <li>✓ View file information</li>
-          <li>✓ Share download links with others</li>
-        </ul>
-      </div>
+            <div class="activating-section">
+                <h2 class="section-title">📂 Upload New Files</h2>
+                <button class="action-btn" onclick="document.getElementById('fileInput').click()"
+                    style="width: 100%; padding: 12px;">
+                    Choose File to Upload
+                </button>
+                <input type="file" id="fileInput" style="display: none;" onchange="uploadFile(event)">
+            </div>
+
+            <div class="activating-section">
+                <h2 class="section-title">ℹ️ About This Folder</h2>
+                <p class="description">
+                    The <strong>/activating</strong> folder contains executable files and scripts necessary for system
+                    activation.
+                    You can:
+                </p>
+                <ul style="color: #6b7280; margin-left: 20px;">
+                    <li>✓ Download files to your computer</li>
+                    <li>✓ Upload new activation files</li>
+                    <li>✓ View file information</li>
+                    <li>✓ Share download links with others</li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    // ==========================================
-    // CONFIGURE YOUR SUPABASE CREDENTIALS HERE
-    // ==========================================
-    const SUPABASE_URL = "https://opagedhpncefavhbmtup.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9wYWdlZGhwbmNlZmF2aGJtdHVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUyODU1NDIsImV4cCI6MjA4MDg2MTU0Mn0.VpMAPQ7YJYZKYUSbtEZqUn0GMNvE_OcFalMBfJdHlDU";
-    const BUCKET_NAME = "files";
-    const FOLDER_NAME = "activating";
-    // ==========================================
+    <script>
+        // ==========================================
+        // CONFIGURE YOUR SUPABASE CREDENTIALS HERE
+        // ==========================================
+        const SUPABASE_URL = "https://opagedhpncefavhbmtup.supabase.co";
+        const SUPABASE_ANON_KEY =
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9wYWdlZGhwbmNlZmF2aGJtdHVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUyODU1NDIsImV4cCI6MjA4MDg2MTU0Mn0.VpMAPQ7YJYZKYUSbtEZqUn0GMNvE_OcFalMBfJdHlDU";
+        const BUCKET_NAME = "files";
+        const FOLDER_NAME = "activating";
+        // ==========================================
 
-    if (SUPABASE_URL === "https://YOUR_PROJECT_ID.supabase.co" || SUPABASE_ANON_KEY === "YOUR_ANON_PUBLIC_KEY") {
-      document.getElementById('fileList').innerHTML = `
+        if (SUPABASE_URL === "https://YOUR_PROJECT_ID.supabase.co" || SUPABASE_ANON_KEY === "YOUR_ANON_PUBLIC_KEY") {
+            document.getElementById('fileList').innerHTML = `
         <div style="background-color: rgba(255, 0, 110, 0.2); border: 2px solid #ff006e; border-radius: 8px; padding: 15px; color: #ff006e;">
           ⚠️ Please configure your Supabase credentials first! Edit this file and add your API keys.
         </div>
       `;
-    }
+        }
 
-    async function loadFiles() {
-      try {
-        const response = await fetch(
-          `${SUPABASE_URL}/storage/v1/object/list/${BUCKET_NAME}?prefix=${FOLDER_NAME}`,
-          {
-            headers: {
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-            },
-          }
-        );
+        async function loadFiles() {
+            try {
+                const response = await fetch(
+                    `${SUPABASE_URL}/storage/v1/object/list/${BUCKET_NAME}?prefix=${FOLDER_NAME}`, {
+                        headers: {
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        },
+                    }
+                );
 
-        if (!response.ok) throw new Error('Failed to load files');
+                if (!response.ok) throw new Error('Failed to load files');
 
-        const data = await response.json();
-        const files = (data.objects || []).filter(f => f.name !== FOLDER_NAME);
+                const data = await response.json();
+                const files = (data.objects || []).filter(f => f.name !== FOLDER_NAME);
 
-        displayFiles(files);
-      } catch (error) {
-        console.error('Load error:', error);
-        document.getElementById('fileList').innerHTML = `
+                displayFiles(files);
+            } catch (error) {
+                console.error('Load error:', error);
+                document.getElementById('fileList').innerHTML = `
           <div style="background-color: rgba(255, 0, 110, 0.2); border: 2px solid #ff006e; border-radius: 8px; padding: 15px; color: #ff006e;">
             Error loading files. Check Supabase configuration.
           </div>
         `;
-      }
-    }
+            }
+        }
 
-    function displayFiles(files) {
-      const fileList = document.getElementById('fileList');
+        function displayFiles(files) {
+            const fileList = document.getElementById('fileList');
 
-      if (files.length === 0) {
-        fileList.innerHTML = `
+            if (files.length === 0) {
+                fileList.innerHTML = `
           <div style="text-align: center; padding: 30px; color: #6b7280;">
             <p>No files in /activating folder yet</p>
             <p style="font-size: 0.9rem; margin-top: 10px;">Upload your first file using the button below</p>
           </div>
         `;
-        return;
-      }
+                return;
+            }
 
-      fileList.innerHTML = files.map(file => `
+            fileList.innerHTML = files.map(file => `
         <div class="file-item">
           <div>
             <div class="file-name">📄 ${file.name.replace(`${FOLDER_NAME}/`, '')}</div>
@@ -292,62 +301,62 @@
           </div>
         </div>
       `).join('');
-    }
-
-    function getFileUrl(fileName) {
-      return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${fileName}`;
-    }
-
-    function getFileType(fileName) {
-      const ext = fileName.split('.').pop().toUpperCase();
-      return ext;
-    }
-
-    function formatFileSize(bytes) {
-      if (bytes === 0) return '0 B';
-      const k = 1024;
-      const sizes = ['B', 'KB', 'MB', 'GB'];
-      const i = Math.floor(Math.log(bytes) / Math.log(k));
-      return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
-    }
-
-    function copyToClipboard(url) {
-      navigator.clipboard.writeText(url).then(() => {
-        alert('✓ URL copied to clipboard!');
-      });
-    }
-
-    async function uploadFile(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      try {
-        const fileName = `${FOLDER_NAME}/${Date.now()}_${file.name}`;
-        const response = await fetch(
-          `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${fileName}`,
-          {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-            },
-            body: file,
-          }
-        );
-
-        if (response.ok) {
-          alert(`✓ File "${file.name}" uploaded successfully!`);
-          loadFiles();
-          document.getElementById('fileInput').value = '';
-        } else {
-          alert('Error uploading file');
         }
-      } catch (error) {
-        alert(`Error: ${error.message}`);
-      }
-    }
 
-    // Load files on page load
-    loadFiles();
-  </script>
+        function getFileUrl(fileName) {
+            return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${fileName}`;
+        }
+
+        function getFileType(fileName) {
+            const ext = fileName.split('.').pop().toUpperCase();
+            return ext;
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('✓ URL copied to clipboard!');
+            });
+        }
+
+        async function uploadFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            try {
+                const fileName = `${FOLDER_NAME}/${Date.now()}_${file.name}`;
+                const response = await fetch(
+                    `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${fileName}`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        },
+                        body: file,
+                    }
+                );
+
+                if (response.ok) {
+                    alert(`✓ File "${file.name}" uploaded successfully!`);
+                    loadFiles();
+                    document.getElementById('fileInput').value = '';
+                } else {
+                    alert('Error uploading file');
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        // Load files on page load
+        loadFiles();
+    </script>
 </body>
+
 </html>
