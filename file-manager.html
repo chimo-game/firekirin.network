@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Manager - FireKirin Network</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <style>
+    body {
+      background-color: #0a0e27;
+      background-image: radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.03) 0%, transparent 50%),
+                        url("./assets/images/body-bg.jpg");
+    }
+
+    .file-manager-container {
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 40px 20px;
+    }
+
+    .file-manager-title {
+      text-align: center;
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .file-manager-subtitle {
+      text-align: center;
+      color: #00ff41;
+      margin-bottom: 40px;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    }
+
+    .upload-section {
+      background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(255, 0, 110, 0.05));
+      border: 2px dashed #00ff41;
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .upload-section:hover {
+      background: linear-gradient(135deg, rgba(0, 255, 65, 0.15), rgba(255, 0, 110, 0.1));
+      border-color: #00dd33;
+      box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+    }
+
+    .upload-section.dragover {
+      background: linear-gradient(135deg, rgba(0, 255, 65, 0.2), rgba(255, 0, 110, 0.15));
+      border-color: #00dd33;
+      box-shadow: 0 0 40px rgba(0, 255, 65, 0.5);
+    }
+
+    .upload-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .upload-text {
+      color: #fff;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .upload-subtext {
+      color: #6b7280;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    .upload-btn {
+      background-color: #00ff41;
+      color: #000;
+      padding: 12px 30px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+    }
+
+    .upload-btn:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 65, 0.9);
+      transform: scale(1.05);
+    }
+
+    .files-section {
+      background: rgba(15, 22, 41, 0.8);
+      border: 2px solid rgba(0, 255, 65, 0.3);
+      border-radius: 15px;
+      padding: 30px;
+    }
+
+    .files-title {
+      color: #fff;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .file-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .file-item {
+      background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(255, 0, 110, 0.05));
+      border: 1px solid rgba(0, 255, 65, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .file-item:hover {
+      background: linear-gradient(135deg, rgba(0, 255, 65, 0.15), rgba(255, 0, 110, 0.1));
+      border-color: rgba(0, 255, 65, 0.5);
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    }
+
+    .file-info {
+      flex: 1;
+    }
+
+    .file-name {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      word-break: break-all;
+    }
+
+    .file-size {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    .file-actions {
+      display: flex;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .file-btn {
+      padding: 8px 15px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .download-btn {
+      background-color: #00ff41;
+      color: #000;
+      box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    }
+
+    .download-btn:hover {
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.7);
+      transform: scale(1.05);
+    }
+
+    .delete-btn {
+      background-color: #ff006e;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+    }
+
+    .delete-btn:hover {
+      box-shadow: 0 0 20px rgba(255, 0, 110, 0.7);
+      transform: scale(1.05);
+    }
+
+    .copy-btn {
+      background-color: #6366f1;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    }
+
+    .copy-btn:hover {
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.7);
+      transform: scale(1.05);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #6b7280;
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 20px;
+      color: #00ff41;
+    }
+
+    .spinner {
+      border: 3px solid rgba(0, 255, 65, 0.2);
+      border-top: 3px solid #00ff41;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .status-message {
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .status-success {
+      background-color: rgba(0, 255, 65, 0.2);
+      border: 2px solid #00ff41;
+      color: #00ff41;
+    }
+
+    .status-error {
+      background-color: rgba(255, 0, 110, 0.2);
+      border: 2px solid #ff006e;
+      color: #ff006e;
+    }
+
+    .config-notice {
+      background-color: rgba(99, 102, 241, 0.2);
+      border: 2px solid #6366f1;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      color: #a5b4fc;
+    }
+
+    .config-notice strong {
+      color: #c7d2fe;
+    }
+
+    .copy-url-feedback {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #00ff41;
+      color: #000;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+      display: none;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      .file-manager-container {
+        margin: 80px auto;
+        padding: 20px 15px;
+      }
+
+      .file-manager-title {
+        font-size: 2rem;
+      }
+
+      .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .file-actions {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 15px;
+      }
+
+      .file-btn {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="file-manager-container">
+    <h1 class="file-manager-title">📁 File Manager</h1>
+    <p class="file-manager-subtitle">Upload and manage your files with ease</p>
+
+    <div class="config-notice">
+      <strong>⚠️ Important:</strong> Before uploading files, please configure your Supabase credentials in the script settings.
+      <br>Edit <code>file-manager.html</code> and add your Supabase URL and API key in the JavaScript section below.
+    </div>
+
+    <div id="statusMessage"></div>
+
+    <div class="upload-section" id="uploadArea">
+      <div class="upload-icon">☁️</div>
+      <div class="upload-text">Drag & Drop Files Here</div>
+      <div class="upload-subtext">or click to select files (Max 50MB each)</div>
+      <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+        Choose File
+      </button>
+      <input type="file" id="fileInput" multiple>
+    </div>
+
+    <div class="files-section">
+      <h2 class="files-title">📂 Your Files</h2>
+      <div id="fileList" class="file-list">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading your files...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copy-url-feedback" id="copyFeedback">✓ URL copied to clipboard!</div>
+
+  <script>
+    // ==========================================
+    // CONFIGURE YOUR SUPABASE CREDENTIALS HERE
+    // ==========================================
+    const SUPABASE_URL = "https://opagedhpncefavhbmtup.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9wYWdlZGhwbmNlZmF2aGJtdHVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUyODU1NDIsImV4cCI6MjA4MDg2MTU0Mn0.VpMAPQ7YJYZKYUSbtEZqUn0GMNvE_OcFalMBfJdHlDU";
+    const BUCKET_NAME = "files";
+    // ==========================================
+
+    let files = [];
+
+    // Check if credentials are configured
+    if (SUPABASE_URL === "https://YOUR_PROJECT_ID.supabase.co" || SUPABASE_ANON_KEY === "YOUR_ANON_PUBLIC_KEY") {
+      document.getElementById('statusMessage').innerHTML = `
+        <div class="status-message status-error">
+          ⚠️ Please configure your Supabase credentials in the script before using this file manager!
+        </div>
+      `;
+      document.getElementById('uploadArea').style.opacity = '0.5';
+      document.getElementById('uploadArea').style.pointerEvents = 'none';
+    }
+
+    // Upload Area - Drag & Drop
+    const uploadArea = document.getElementById('uploadArea');
+
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('dragover');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    uploadArea.addEventListener('click', () => {
+      document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', (e) => {
+      handleFiles(e.target.files);
+    });
+
+    async function handleFiles(fileList) {
+      for (let file of fileList) {
+        if (file.size > 50 * 1024 * 1024) {
+          showStatus(`File ${file.name} is too large (max 50MB)`, 'error');
+          continue;
+        }
+        await uploadFile(file);
+      }
+      loadFiles();
+    }
+
+    async function uploadFile(file) {
+      try {
+        const fileName = `${Date.now()}_${file.name}`;
+        const formData = new FormData();
+        formData.append('', file);
+
+        const response = await fetch(
+          `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${fileName}`,
+          {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            },
+            body: file,
+          }
+        );
+
+        if (response.ok) {
+          showStatus(`✓ File "${file.name}" uploaded successfully!`, 'success');
+          loadFiles();
+        } else {
+          showStatus(`Error uploading ${file.name}`, 'error');
+        }
+      } catch (error) {
+        console.error('Upload error:', error);
+        showStatus(`Error uploading ${file.name}: ${error.message}`, 'error');
+      }
+    }
+
+    async function loadFiles() {
+      try {
+        const response = await fetch(
+          `${SUPABASE_URL}/storage/v1/object/list/${BUCKET_NAME}`,
+          {
+            headers: {
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            },
+          }
+        );
+
+        if (!response.ok) throw new Error('Failed to load files');
+
+        const data = await response.json();
+        files = data.objects || [];
+
+        displayFiles();
+      } catch (error) {
+        console.error('Load error:', error);
+        document.getElementById('fileList').innerHTML = `
+          <div class="status-message status-error">
+            Error loading files. Please check your Supabase configuration.
+          </div>
+        `;
+      }
+    }
+
+    function displayFiles() {
+      const fileList = document.getElementById('fileList');
+
+      if (files.length === 0) {
+        fileList.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">📭</div>
+            <p>No files uploaded yet. Upload your first file above!</p>
+          </div>
+        `;
+        return;
+      }
+
+      fileList.innerHTML = files.map(file => `
+        <div class="file-item">
+          <div class="file-info">
+            <div class="file-name">📄 ${file.name}</div>
+            <div class="file-size">${formatFileSize(file.metadata?.size || 0)}</div>
+          </div>
+          <div class="file-actions">
+            <button class="file-btn copy-btn" onclick="copyToClipboard('${getFileUrl(file.name)}')">
+              Copy URL
+            </button>
+            <a href="${getFileUrl(file.name)}" download class="file-btn download-btn">
+              Download
+            </a>
+            <button class="file-btn delete-btn" onclick="deleteFile('${file.name}')">
+              Delete
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getFileUrl(fileName) {
+      return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${fileName}`;
+    }
+
+    async function deleteFile(fileName) {
+      if (!confirm(`Are you sure you want to delete "${fileName}"?`)) return;
+
+      try {
+        const response = await fetch(
+          `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${fileName}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            },
+          }
+        );
+
+        if (response.ok) {
+          showStatus(`✓ File deleted successfully!`, 'success');
+          loadFiles();
+        } else {
+          showStatus(`Error deleting file`, 'error');
+        }
+      } catch (error) {
+        showStatus(`Error deleting file: ${error.message}`, 'error');
+      }
+    }
+
+    function copyToClipboard(url) {
+      navigator.clipboard.writeText(url).then(() => {
+        const feedback = document.getElementById('copyFeedback');
+        feedback.style.display = 'block';
+        setTimeout(() => {
+          feedback.style.display = 'none';
+        }, 2000);
+      });
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    function showStatus(message, type) {
+      const statusDiv = document.getElementById('statusMessage');
+      statusDiv.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
+      setTimeout(() => {
+        statusDiv.innerHTML = '';
+      }, 5000);
+    }
+
+    // Load files on page load
+    loadFiles();
+  </script>
+</body>
+</html>

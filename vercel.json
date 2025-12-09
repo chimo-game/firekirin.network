@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/activating", "destination": "/activating.html" },
+    { "source": "/file-manager", "destination": "/file-manager.html" }
+  ]
+}
