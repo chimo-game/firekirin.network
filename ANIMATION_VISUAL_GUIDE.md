@@ -3,6 +3,7 @@
 ## 🎬 The 7 Animations Explained Visually
 
 ### 1. SHINE EFFECT ✨
+
 ```
 Time 0%          Time 50%        Time 100%
    ↓                ↓                ↓
@@ -14,6 +15,7 @@ Time 0%          Time 50%        Time 100%
  Light at         Light at         Light at
   left            middle            right
 ```
+
 **Effect**: Smooth light sweep across entire box  
 **Duration**: 3 seconds, repeating  
 **Purpose**: Premium, polished appearance
@@ -21,6 +23,7 @@ Time 0%          Time 50%        Time 100%
 ---
 
 ### 2. BOX PULSE 📈
+
 ```
 Time 0%          Time 50%        Time 100%
    ↓                ↓                ↓
@@ -29,6 +32,7 @@ Time 0%          Time 50%        Time 100%
 └────────┘       ╚════════╝       └────────┘
  100% size       103% size        100% size
 ```
+
 **Effect**: Box gently expands and contracts  
 **Duration**: 2 seconds, repeating  
 **Purpose**: Draws attention subtly
@@ -36,6 +40,7 @@ Time 0%          Time 50%        Time 100%
 ---
 
 ### 3. ICON BOUNCE 🎪
+
 ```
 Time 0%          Time 50%        Time 100%
    ↓                ↓                ↓
@@ -43,6 +48,7 @@ Time 0%          Time 50%        Time 100%
                  ▲
               Bouncing up!
 ```
+
 **Effect**: Emoji icons bounce up and down  
 **Duration**: 2 seconds, repeating  
 **Purpose**: Playful, engaging movement
@@ -50,6 +56,7 @@ Time 0%          Time 50%        Time 100%
 ---
 
 ### 4. ICON GLOW 💫
+
 ```
 Time 0%          Time 50%        Time 100%
    ↓                ↓                ↓
@@ -57,6 +64,7 @@ Time 0%          Time 50%        Time 100%
   no glow    ✨✨✨✨✨✨✨    no glow
              (8px shadow)
 ```
+
 **Effect**: Green glow pulses around icons  
 **Duration**: 2.5 seconds, repeating  
 **Purpose**: Makes icons stand out
@@ -64,12 +72,14 @@ Time 0%          Time 50%        Time 100%
 ---
 
 ### 5. NUMBER PULSE 🔄
+
 ```
 Time 0%          Time 50%        Time 100%
    ↓                ↓                ↓
   245+             245+              245+
  100%size        105% size         100% size
 ```
+
 **Effect**: Numbers subtly scale up/down  
 **Duration**: 2 seconds, repeating  
 **Purpose**: Maintains viewer engagement
@@ -77,6 +87,7 @@ Time 0%          Time 50%        Time 100%
 ---
 
 ### 6. NUMBER POP 💥 (Update Trigger)
+
 ```
 Time 0%  Time 30%  Time 60%  Time 100%
    ↓       ↓         ↓          ↓
@@ -85,6 +96,7 @@ Time 0%  Time 30%  Time 60%  Time 100%
   80%    100%      115%        100%
  faint   normal    BRIGHT!    settled
 ```
+
 **Effect**: Numbers expand with bright glow on update  
 **Duration**: 0.6 seconds (per update)  
 **Purpose**: Satisfying update feedback
@@ -92,6 +104,7 @@ Time 0%  Time 30%  Time 60%  Time 100%
 ---
 
 ### 7. BOX GLOW 🌟
+
 ```
 Time 0%          Time 50%        Time 100%
    ↓                ↓                ↓
@@ -100,6 +113,7 @@ Time 0%          Time 50%        Time 100%
 └────────┘       ┗━━━━━━━━┛       └────────┘
  soft glow      bright glow       soft glow
 ```
+
 **Effect**: Box border glow brightens/dims  
 **Duration**: 3 seconds, repeating  
 **Purpose**: Neon casino aesthetic
@@ -139,6 +153,7 @@ Layer 7 (Pop)        [Triggered at 5s] 💥
 ### DESKTOP VIEW (Before & After)
 
 **BEFORE**:
+
 ```
 ┌────────────────────────────────────┐
 │  👥  Accounts Created              │
@@ -149,7 +164,7 @@ Layer 7 (Pop)        [Triggered at 5s] 💥
 │      [50px margin-top]             │
 └────────────────────────────────────┘
          ~160px height
-         
+
 ┌────────────────────────────────────┐
 │  🎰  Daily Jackpot                 │
 │        $7,642                      │
@@ -161,13 +176,14 @@ Total: ~350px
 ```
 
 **AFTER**:
+
 ```
 ┌──────────────────────────┐
 │ 👥 Accounts: 245+ Today  │
 │ [15px padding]           │
 └──────────────────────────┘
        ~110px height
-       
+
 ┌──────────────────────────┐
 │ 🎰 Jackpot: $7,642 Live  │
 │ [15px padding]           │
@@ -184,6 +200,7 @@ Total: ~210px
 ### MOBILE VIEW (Before & After)
 
 **BEFORE**:
+
 ```
 ┌──────────────────────┐
 │ 👥 Accounts          │
@@ -205,6 +222,7 @@ Total: ~340px
 ```
 
 **AFTER**:
+
 ```
 ┌──────────────────────┐
 │ 👥 Accounts: 245+    │
@@ -256,7 +274,7 @@ Sec 0 ─── Update triggers (new numbers generated)
 
 ANIMATION STAGGERING:
 Icon Bounce:    2s cycle
-Icon Glow:      2.5s cycle  
+Icon Glow:      2.5s cycle
 Number Pulse:   2s cycle
 Box Pulse:      2s cycle
 Box Glow:       3s cycle
@@ -271,6 +289,7 @@ Result: Smooth, continuous motion without jarring!
 ## 🎨 Color & Glow Effects
 
 ### Icon Glow Animation
+
 ```
 Normal State:
 👥 no glow (drop-shadow: 0 0 0px)
@@ -290,6 +309,7 @@ Time  Glow
 ```
 
 ### Number Pop Colors
+
 ```
 BEFORE UPDATE:
 245+ [normal green gradient]
@@ -309,6 +329,7 @@ SETTLE:
 ## ⚡ Performance Metrics
 
 ### CPU Usage per Animation
+
 ```
 Shine Effect:        ░░░░░░░░░░ 2% (GPU accelerated)
 Box Pulse:           ░░░░░░░░░░ 3% (transform)
@@ -325,6 +346,7 @@ Remaining:           ███████████████████�
 ```
 
 ### Frame Rate (FPS)
+
 ```
 Animation Type      FPS
 ─────────────────────────
@@ -362,16 +384,16 @@ Result: Smooth, overlapping animations
 
 ## 📊 Summary Table
 
-| Animation | Duration | Repeats | CPU | GPU | FPS |
-|-----------|----------|---------|-----|-----|-----|
-| Shine | 3s | ∞ | 2% | ✅ | 60 |
-| Pulse | 2s | ∞ | 3% | ✅ | 60 |
-| Bounce | 2s | ∞ | 2% | ✅ | 60 |
-| Glow | 2.5s | ∞ | 2% | ✅ | 60 |
-| Icon Glow | 2.5s | ∞ | 2% | ✅ | 60 |
-| Box Glow | 3s | ∞ | 2% | ✅ | 60 |
-| Pop | 0.6s | Event | 3% | ✅ | 60 |
-| **TOTAL** | Varied | - | **18%** | **100%** | **60** |
+| Animation | Duration | Repeats | CPU     | GPU      | FPS    |
+| --------- | -------- | ------- | ------- | -------- | ------ |
+| Shine     | 3s       | ∞       | 2%      | ✅       | 60     |
+| Pulse     | 2s       | ∞       | 3%      | ✅       | 60     |
+| Bounce    | 2s       | ∞       | 2%      | ✅       | 60     |
+| Glow      | 2.5s     | ∞       | 2%      | ✅       | 60     |
+| Icon Glow | 2.5s     | ∞       | 2%      | ✅       | 60     |
+| Box Glow  | 3s       | ∞       | 2%      | ✅       | 60     |
+| Pop       | 0.6s     | Event   | 3%      | ✅       | 60     |
+| **TOTAL** | Varied   | -       | **18%** | **100%** | **60** |
 
 ---
 
@@ -402,6 +424,7 @@ Result: Smooth, overlapping animations
 ## 🎉 Result
 
 7 simultaneous, smooth, synchronized animations creating a:
+
 - ✨ Premium, professional appearance
 - 🎪 Playful, engaging experience
 - ⚡ Smooth 60fps performance

@@ -509,7 +509,8 @@ body {
 }
 
 @keyframes statPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -540,7 +541,8 @@ body {
 
 .stat-icon {
   font-size: 2.5rem;
-  animation: iconBounce 2s ease-in-out infinite, iconPulse 2.5s ease-out infinite;
+  animation: iconBounce 2s ease-in-out infinite,
+    iconPulse 2.5s ease-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -549,7 +551,8 @@ body {
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+  0%,
+  100% {
     filter: drop-shadow(0 0 0px rgba(0, 255, 65, 0.5));
   }
   50% {
@@ -558,7 +561,8 @@ body {
 }
 
 @keyframes iconBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -594,7 +598,8 @@ body {
 }
 
 @keyframes numberPop {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
