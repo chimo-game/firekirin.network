@@ -395,6 +395,9 @@ body {
   box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
   border: 2px solid #00ff41;
   font-size: var(--fontSize-7);
+  pointer-events: auto;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .my-btn-link:hover {
