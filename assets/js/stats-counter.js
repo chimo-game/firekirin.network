@@ -25,10 +25,14 @@ class StatsCounter {
   init() {
     // Set initial display values from stored data
     if (this.accountsElement) {
-      this.accountsElement.textContent = this.formatNumber(this.accountsCurrent);
+      this.accountsElement.textContent = this.formatNumber(
+        this.accountsCurrent
+      );
     }
     if (this.jackpotElement) {
-      this.jackpotElement.textContent = this.formatCurrency(this.jackpotCurrent);
+      this.jackpotElement.textContent = this.formatCurrency(
+        this.jackpotCurrent
+      );
     }
 
     // Start animation when element becomes visible
@@ -73,7 +77,7 @@ class StatsCounter {
 
   incrementStats() {
     if (this.isAnimating) return;
-    
+
     this.isAnimating = true;
 
     // Generate new increment amounts
