@@ -87,21 +87,6 @@ class StatsCounter {
     const duration = 2000; // 2 seconds animation
     const startTime = Date.now();
 
-    // Add pop effect class
-    if (this.accountsElement) {
-      this.accountsElement.classList.add("pop-animation");
-      setTimeout(() => {
-        this.accountsElement.classList.remove("pop-animation");
-      }, 600);
-    }
-
-    if (this.jackpotElement) {
-      this.jackpotElement.classList.add("pop-animation");
-      setTimeout(() => {
-        this.jackpotElement.classList.remove("pop-animation");
-      }, 600);
-    }
-
     const animateFrame = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
